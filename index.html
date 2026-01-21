@@ -22,34 +22,6 @@
             --accent-purple: #8b5cf6;
             --accent-green: #10b981;
         }
-        
-        [data-theme="light"] {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f4f4f4;
-            --bg-card: #f9f9f9;
-            --text-primary: #1a1a1a;
-            --text-secondary: #4a4a4a;
-            --accent: #2563eb;
-        }
-
-        /* THEME TOGGLE BUTTON STYLE */
-        .theme-toggle {
-            background: transparent;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-left: 1.5rem;
-            transition: 0.3s;
-        }
-
-        .theme-toggle:hover {
-            background: var(--accent);
-            color: white;
-        }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
@@ -606,30 +578,6 @@
         }
     </style>
 </head>
-    <script>
-        const themeBtn = document.getElementById('theme-btn');
-        const body = document.documentElement;
-
-        themeBtn.addEventListener('click', () => {
-            if (body.getAttribute('data-theme') === 'light') {
-                body.removeAttribute('data-theme');
-                themeBtn.innerHTML = '🌙 Dark Mode';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.setAttribute('data-theme', 'light');
-                themeBtn.innerHTML = '☀️ Light Mode';
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
-        // Remembers user choice on page refresh
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            body.setAttribute('data-theme', 'light');
-            themeBtn.innerHTML = '☀️ Light Mode';
-        }
-    </script>
-    
 <body>
     <!-- Navigation -->
     <nav>
@@ -641,7 +589,6 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><button class="theme-toggle" id="theme-btn">🌙 Dark Mode</button></li>
             </ul>
         </div>
     </nav>
@@ -658,7 +605,6 @@
                 <a href="JayaSravan_DataEngineer_Resume.pdf" target="_blank" class="btn btn-primary">View Resume</a>
                 <a href="#projects" class="btn btn-primary">View Projects</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                
             </div>
         </div>
     </section>
