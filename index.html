@@ -630,7 +630,7 @@
                     <div class="stat-label">Years of Experience</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">Coming Soon</div>
+                    <div class="stat-number">2</div>
                     <div class="stat-label">Projects Built</div>
                 </div>
                 <div class="stat-card">
@@ -679,7 +679,7 @@
                 <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
                     <div>
                         <h3 style="font-size: 1.6rem; color: var(--accent); margin-bottom: 0.5rem;">Ucode Technologies</h3>
-                        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">Software Trainee</p>
+                        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">Software Trainee / Data Engineer</p>
                         <p style="color: var(--text-secondary);">Remote</p>
                     </div>
                     <div style="text-align: right;">
@@ -687,9 +687,14 @@
                     </div>
                 </div>
                 <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 1.5rem;">
-                    <li>Designed end-to-end Azure data pipeline using ADF, ADLS Gen2, HDInsight (Hive), and Azure SQL for analytics and reporting</li>
-                    <li>Orchestrated complex ETL workflows with CI/CD pipelines in Azure DevOps, reducing deployment time by 40%</li>
-                    <li>Conducted performance tuning on HDInsight/Hive queries, lowering pipeline runtimes by 25%</li>
+                    <li>Designed and implemented end-to-end Azure data pipeline for analytics and reporting using Azure Data Factory, ADLS Gen2, HDInsight (Hive), and Azure SQL</li>
+                    <li>Built and orchestrated batch ETL workflows in ADF, including data ingestion, transformation, and loading into curated reporting layers</li>
+                    <li>Configured ADF Mapping Data Flows with Join, Lookup, Pivot, Sort, Group, and Select transformations to cleanse, enrich, and validate datasets</li>
+                    <li>Implemented data quality checks including schema validation, null handling, and record count verification for reliable downstream reporting</li>
+                    <li>Set up CI/CD pipelines in Azure DevOps to automate deployment across environments, reducing manual deployment effort and errors</li>
+                    <li>Automated multi-environment deployments (Test and Prod) using ARM templates, ensuring consistent infrastructure and pipeline configurations</li>
+                    <li>Implemented monitoring and alerting using Azure Monitor and Log Analytics (KQL) to track pipeline health and identify failures</li>
+                    <li>Performed performance tuning on Hive queries and optimized ADF configurations, reducing pipeline execution time</li>
                 </ul>
             </div>
 
@@ -706,9 +711,12 @@
                     </div>
                 </div>
                 <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 1.5rem;">
-                    <li>Created and optimized Snowflake and MySQL ETL workflows using SQL transformations for dashboards and monthly reports</li>
-                    <li>Streamlined data cleansing with Excel, improving reporting turnaround time by 20%</li>
-                    <li>Improved SQL query performance for recurring workflows, decreasing monthly refresh time by 15%</li>
+                    <li>Supported production data pipelines using Talend, executing daily, weekly, and monthly batch jobs to process enterprise datasets for reporting and analytics</li>
+                    <li>Built and maintained data warehouse tables in Snowflake, organizing raw and transformed data to support BI and reporting use cases</li>
+                    <li>Used SQL and Snowflake to modify table schemas, verify row counts and data completeness, and perform reconciliation checks between source and target systems</li>
+                    <li>Prepared curated datasets and collaborated with dashboard teams to ensure accurate metrics, consistent definitions, and reliable reporting</li>
+                    <li>Monitored production jobs, investigated data issues, and resolved failures to ensure on-time dashboard refreshes and SLA compliance</li>
+                    <li>Used Excel for exploratory analysis, sanity checks, and data verification during pipeline execution and client reviews</li>
                 </ul>
             </div>
 
@@ -855,18 +863,74 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">Building exciting ML, CV, and Data Engineering projects</p>
-        <div class="empty-state">
-            <div class="empty-state-icon">🚀</div>
-            <h3>Projects Coming Soon</h3>
-            <p style="margin-top: 1rem;">
-                I'm currently building a collection of projects showcasing:<br><br>
-                • Computer Vision systems (Object Detection, Segmentation)<br>
-                • End-to-end ML pipelines with MLOps<br>
-                • Scalable Data Engineering solutions<br>
-                • Real-time inference applications<br><br>
-                Check back soon to see them live!
-            </p>
+        <p class="section-subtitle">Building solutions with real-world impact</p>
+        <div class="projects-grid">
+            
+            <!-- Formula 1 Project -->
+            <div class="project-card">
+                <div class="project-image">🏎️</div>
+                <div class="project-content">
+                    <h3 class="project-title">Formula 1 Race Analytics Pipeline</h3>
+                    <p class="project-description" style="margin-bottom: 1rem;">
+                        End-to-end data pipeline to ingest, process, and analyze Formula 1 race and telemetry datasets for historical and performance analysis.
+                    </p>
+                    <ul style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; margin-left: 1.2rem;">
+                        <li>Designed batch and incremental ingestion pipelines using Azure Data Factory to load raw race data into Delta Lake storage</li>
+                        <li>Implemented Bronze, Silver, and Gold Delta layers with schema enforcement and ACID guarantees for clean data transformations</li>
+                        <li>Developed PySpark jobs to clean and normalize race, driver, constructor, and lap-level data while handling schema changes</li>
+                        <li>Optimized Delta Lake partitioning strategies, improving query performance and reducing read latency</li>
+                        <li>Used Spark SQL for driver/constructor performance trends, lap-time analysis, and season-level comparisons</li>
+                        <li>Enabled time-travel and reproducibility using Delta Lake versioning for debugging and historical comparisons</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="project-tag">Azure Data Factory</span>
+                        <span class="project-tag">PySpark</span>
+                        <span class="project-tag">Delta Lake</span>
+                        <span class="project-tag">Spark SQL</span>
+                        <span class="project-tag">ADLS Gen2</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fake News Detection Project -->
+            <div class="project-card">
+                <div class="project-image" style="background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);">📰</div>
+                <div class="project-content">
+                    <h3 class="project-title">Fake News Detection (Multimodal)</h3>
+                    <p class="project-description" style="margin-bottom: 1rem;">
+                        Multimodal detection system using CLIP and ViLT to evaluate alignment between article text and thumbnail images for misinformation screening.
+                    </p>
+                    <ul style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; margin-left: 1.2rem;">
+                        <li>Engineered cross-modal similarity module using cosine distance and projection heads to quantify visual-textual coherence</li>
+                        <li>Added drift-monitoring hooks and lightweight retraining triggers to adapt when content distributions shifted over time</li>
+                        <li>Delivered interpretability dashboard with attention heatmaps (Grad-CAM/ViLT attention) to inspect mismatch decisions</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="project-tag">CLIP</span>
+                        <span class="project-tag">ViLT</span>
+                        <span class="project-tag">PyTorch</span>
+                        <span class="project-tag">Transformers</span>
+                        <span class="project-tag">Grad-CAM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coming Soon Card -->
+            <div class="project-card" style="opacity: 0.6;">
+                <div class="project-image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">🚀</div>
+                <div class="project-content">
+                    <h3 class="project-title">More Projects Coming Soon</h3>
+                    <p class="project-description">
+                        Currently building additional Computer Vision, ML, and Data Engineering projects. Check back soon for updates!
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Computer Vision</span>
+                        <span class="project-tag">MLOps</span>
+                        <span class="project-tag">Data Engineering</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
