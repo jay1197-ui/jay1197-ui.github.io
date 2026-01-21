@@ -87,6 +87,7 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
+            gap: 1rem; /* ADDED: small spacing for toggle button */
         }
 
         .nav-links {
@@ -576,6 +577,39 @@
             color: var(--accent);
             font-weight: 600;
         }
+
+        /* =========================
+           LIGHT MODE SUPPORT (ADDED)
+           ========================= */
+        html[data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f6f7fb;
+            --bg-card: #ffffff;
+
+            --text-primary: #0b1220;
+            --text-secondary: #475569;
+
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+
+            --accent-purple: #7c3aed;
+            --accent-green: #059669;
+        }
+
+        /* Theme toggle button (ADDED) */
+        .theme-toggle {
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: transparent;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        html[data-theme="light"] .theme-toggle {
+            border-color: rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
@@ -590,6 +624,9 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
+            <!-- Theme Toggle Button (ADDED) -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
         </div>
     </nav>
 
@@ -963,4 +1000,45 @@
                     <div class="contact-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <span>Email</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Jaya Sravan Kala. All rights reserved.
+    </footer>
+
+    <!-- Theme Script (ADDED) -->
+    <script>
+        (function () {
+            const root = document.documentElement;
+            const btn = document.getElementById('themeToggle');
+
+            // default = dark
+            const saved = localStorage.getItem('theme');
+            if (saved === 'light' || saved === 'dark') {
+                root.setAttribute('data-theme', saved);
+            }
+
+            function updateIcon() {
+                const theme = root.getAttribute('data-theme');
+                btn.textContent = theme === 'light' ? '🌙' : '☀️';
+            }
+            updateIcon();
+
+            btn.addEventListener('click', function () {
+                const current = root.getAttribute('data-theme') || 'dark';
+                const next = current === 'light' ? 'dark' : 'light';
+                root.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                updateIcon();
+            });
+        })();
+    </script>
+</body>
+</html>
