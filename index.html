@@ -702,13 +702,13 @@
                     </div>
                 </div>
                 <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 1.5rem;">
-                    <li>Designed end-to-end computer vision pipelines for store analytics, covering data ingestion, model training, inference, post-processing, and validation across multiple retail camera scenarios</li>
-                    <li>Trained and fine-tuned YOLO-based detection and segmentation models (Item Stack, Bin Mask, Vertical Steel Bar, Freezer/Produce/Wellness) using PyTorch, improving detection stability in dense shelf environments</li>
-                    <li>Built automated image ingestion pipelines by downloading raw frames, correcting fisheye distortion, and removing 30-40% duplicate/blurry images using Laplacian variance and similarity checks</li>
-                    <li>Implemented model-in-the-loop labeling workflow where inference outputs were post-processed and only low-confidence cases were sent for manual labeling, reducing labeling effort by 40%</li>
-                    <li>Developed advanced post-processing logic including bounding box IoU vs Mask IoU overlap resolution, confidence/IoU threshold tuning, and geometry-aware bin splitting using Vertical Steel Bar detections</li>
-                    <li>Designed Data Ledgers to track raw images, processed frames, inference outputs, and model artifacts, enabling end-to-end lineage and traceability across training and production runs</li>
-                    <li>Integrated MLflow for experiment tracking and DVC for dataset versioning, ensuring reproducible experiments across multiple model variants</li>
+                    <li>Developed YOLO-based object detection and segmentation models (OBB & instance segmentation) for multiple environments.</li>
+                    <li>Designed and maintained end-to-end training workflows including dataset ingestion from TrueSpace, class refinement, quality filtering, and reproducible train/validation/test preparation using MLflow for experiment tracking and model registry management.</li>
+                    <li>Engineered robust post-processing logic using vertical steel bar (VSB) splitting, Non-Maximum Suppression (NMS), mask IoU filtering, and geometric validation with Shapely to eliminate duplicate detections and overlapping masks.</li>
+                    <li>Built automated data collection and quality filtering pipeline integrating Verint API ingestion, blur/fisheye detection (Laplacian variance), and temporal sampling to improve dataset diversity and reduce overfitting.</li>
+                    <li>Implemented pseudo-labeling workflow that runs production models with full post-processing and publishes pre-annotated datasets to TrueSpace via Azure Service Bus, accelerating annotation and retraining cycles.</li>
+                    <li>Contributed to inventory change detection by combining IoU-based spatial alignment, DOLG embedding similarity (cosine similarity), and multimodal confirmation to detect product-level changes across time.</li>
+                    <li>Currently developing similarity-based UPC assignment system using rolling template embeddings from historical labeled mask crops to replace coordinate-dependent mapping with visual similarity matching.</li>
                 </ul>
             </div>
 
@@ -749,12 +749,12 @@
                     </div>
                 </div>
                 <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 1.5rem;">
-                    <li>Supported production data pipelines using Talend, executing daily, weekly, and monthly batch jobs to process enterprise datasets for reporting and analytics</li>
-                    <li>Built and maintained data warehouse tables in Snowflake, organizing raw and transformed data to support BI and reporting use cases</li>
-                    <li>Used SQL and Snowflake to modify table schemas, verify row counts and data completeness, and perform reconciliation checks between source and target systems</li>
-                    <li>Prepared curated datasets and collaborated with dashboard teams to ensure accurate metrics, consistent definitions, and reliable reporting</li>
-                    <li>Monitored production jobs, investigated data issues, and resolved failures to ensure on-time dashboard refreshes and SLA compliance</li>
-                    <li>Used Excel for exploratory analysis, sanity checks, and data verification during pipeline execution and client reviews</li>
+                    <li>Executed and monitored scheduled ETL workflows (daily/weekly/monthly) ensuring reliable data availability and SLA compliance.</li>
+                    <li>Validated and reconciled production datasets across MySQL and Snowflake environments to maintain reporting accuracy.</li>
+                    <li>Supported Snowflake schema creation and structured data warehousing for analytics use cases.</li>
+                    <li>Performed SQL-based transformations and data cleaning to prepare curated datasets for dashboard and reporting teams.</li>
+                    <li>Investigated and resolved data inconsistencies to improve reliability of downstream analytics systems.</li>
+                    
                 </ul>
             </div>
 
