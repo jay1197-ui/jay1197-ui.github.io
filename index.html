@@ -87,7 +87,7 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            gap: 1rem; /* ADDED: small spacing for toggle button */
+            gap: 1rem;
         }
 
         .nav-links {
@@ -313,44 +313,6 @@
             color: var(--text-secondary);
         }
 
-        /* Expertise Areas */
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .expertise-card {
-            background: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .expertise-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-        }
-
-        .expertise-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .expertise-title {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        .expertise-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
         /* Skills Section */
         .skills-grid {
             display: grid;
@@ -455,34 +417,6 @@
             font-size: 0.85rem;
         }
 
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .project-link:hover {
-            color: var(--accent-hover);
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--text-secondary);
-        }
-
-        .empty-state-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            opacity: 0.5;
-        }
-
         /* Contact Section */
         .contact-content {
             max-width: 600px;
@@ -567,10 +501,6 @@
             .contact-links {
                 flex-direction: column;
             }
-
-            .expertise-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         .highlight {
@@ -578,25 +508,19 @@
             font-weight: 600;
         }
 
-        /* =========================
-           LIGHT MODE SUPPORT (ADDED)
-           ========================= */
+        /* LIGHT MODE */
         html[data-theme="light"] {
             --bg-primary: #ffffff;
             --bg-secondary: #f6f7fb;
             --bg-card: #ffffff;
-
             --text-primary: #0b1220;
             --text-secondary: #475569;
-
             --accent: #2563eb;
             --accent-hover: #1d4ed8;
-
             --accent-purple: #7c3aed;
             --accent-green: #059669;
         }
 
-        /* Theme toggle button (ADDED) */
         .theme-toggle {
             padding: 8px 14px;
             border-radius: 10px;
@@ -624,8 +548,6 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-
-            <!-- Theme Toggle Button (ADDED) -->
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
         </div>
     </nav>
@@ -649,17 +571,23 @@
     <!-- About Section -->
     <section id="about" class="section">
         <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Building scalable ML systems and data pipelines</p>
+        <p class="section-subtitle">From pixels to production — building CV systems that actually work</p>
         <div class="about-content">
             <div class="about-text">
                 <p>
-                    I'm a <span class="highlight">Computer Vision Engineer</span> at Sam's Club building scalable CV pipelines for multi-camera retail environments.
+                    I didn't get into tech because it sounded impressive — I got into it because I was genuinely curious about how things work. That curiosity turned into building systems, breaking them, fixing them, and understanding what makes them reliable in the real world.
                 </p>
                 <p>
-                    I work with <span class="highlight">YOLOv11, PyTorch, and MLOps tools</span> to deploy object detection and segmentation models in production, focusing on automation and reliability.
+                    Currently, I work as a <span class="highlight">Computer Vision Engineer</span> building retail AI systems that operate across multiple cameras. I train YOLO-based detection and segmentation models, design data workflows, and spend a lot of time solving the practical challenges that appear after inference — overlapping masks, edge cases, alignment issues, and stabilizing outputs so they're production-ready. I care less about model hype and more about whether the system consistently works end-to-end.
                 </p>
                 <p>
-                    I'm passionate about solving complex computer vision problems and building systems that scale to real-world production environments.
+                    Earlier in my career, I worked on <span class="highlight">data engineering and ETL workflows</span>, which gave me a strong foundation in structured data systems. That background helps me think beyond model performance and focus on the entire pipeline — from data ingestion to deployment.
+                </p>
+                <p>
+                    Outside of work, I enjoy cooking and experimenting with different recipes and flavors. I like the process of iterating, adjusting, and refining something until it feels right — which, in many ways, mirrors how I approach machine learning systems.
+                </p>
+                <p>
+                    I'm always open to conversations around applied machine learning, computer vision, system design, and interesting ideas where practical engineering meets real-world impact.
                 </p>
             </div>
             <div class="about-stats">
@@ -672,7 +600,7 @@
                     <div class="stat-label">Projects Built</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">3</div>
+                    <div class="stat-number">2</div>
                     <div class="stat-label">Companies Worked At</div>
                 </div>
                 <div class="stat-card">
@@ -702,37 +630,14 @@
                     </div>
                 </div>
                 <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 1.5rem;">
-                    <li>Developed YOLO-based object detection and segmentation models (OBB & instance segmentation) for multiple environments.</li>
-                    <li>Designed and maintained end-to-end training workflows including dataset ingestion from TrueSpace, class refinement, quality filtering, and reproducible train/validation/test preparation using MLflow for experiment tracking and model registry management.</li>
-                    <li>Engineered robust post-processing logic using vertical steel bar (VSB) splitting, Non-Maximum Suppression (NMS), mask IoU filtering, and geometric validation with Shapely to eliminate duplicate detections and overlapping masks.</li>
-                    <li>Built automated data collection and quality filtering pipeline integrating Verint API ingestion, blur/fisheye detection (Laplacian variance), and temporal sampling to improve dataset diversity and reduce overfitting.</li>
-                    <li>Implemented pseudo-labeling workflow that runs production models with full post-processing and publishes pre-annotated datasets to TrueSpace via Azure Service Bus, accelerating annotation and retraining cycles.</li>
-                    <li>Contributed to inventory change detection by combining IoU-based spatial alignment, DOLG embedding similarity (cosine similarity), and multimodal confirmation to detect product-level changes across time.</li>
-                    <li>Currently developing similarity-based UPC assignment system using rolling template embeddings from historical labeled mask crops to replace coordinate-dependent mapping with visual similarity matching.</li>
-                </ul>
-            </div>
-
-            <!-- Ucode Technologies -->
-            <div class="stat-card" style="margin-bottom: 2rem;">
-                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
-                    <div>
-                        <h3 style="font-size: 1.6rem; color: var(--accent); margin-bottom: 0.5rem;">Ucode Technologies</h3>
-                        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">Software Trainee</p>
-                        <p style="color: var(--text-secondary);">Remote</p>
-                    </div>
-                    <div style="text-align: right;">
-                        <p style="color: var(--accent); font-weight: 600; font-size: 1.1rem;">Sep 2024 - Jan 2025</p>
-                    </div>
-                </div>
-                <ul style="color: var(--text-secondary); line-height: 1.8; margin-left: 1.5rem;">
-                    <li>Designed and implemented end-to-end Azure data pipeline for analytics and reporting using Azure Data Factory, ADLS Gen2, HDInsight (Hive), and Azure SQL</li>
-                    <li>Built and orchestrated batch ETL workflows in ADF, including data ingestion, transformation, and loading into curated reporting layers</li>
-                    <li>Configured ADF Mapping Data Flows with Join, Lookup, Pivot, Sort, Group, and Select transformations to cleanse, enrich, and validate datasets</li>
-                    <li>Implemented data quality checks including schema validation, null handling, and record count verification for reliable downstream reporting</li>
-                    <li>Set up CI/CD pipelines in Azure DevOps to automate deployment across environments, reducing manual deployment effort and errors</li>
-                    <li>Automated multi-environment deployments (Test and Prod) using ARM templates, ensuring consistent infrastructure and pipeline configurations</li>
-                    <li>Implemented monitoring and alerting using Azure Monitor and Log Analytics (KQL) to track pipeline health and identify failures</li>
-                    <li>Performed performance tuning on Hive queries and optimized ADF configurations, reducing pipeline execution time</li>
+                    <li>Supported large-scale retail vision system operating across 100+ cameras for automated inventory monitoring and product change detection.</li>
+                    <li>Developed YOLOv11-based segmentation and OBB models using structured datasets sourced from TrueSpace, achieving <strong style="color: var(--text-primary);">97% mAP</strong> on validation sets across 2–3 product classes, with MLflow tracking ensuring full experiment reproducibility.</li>
+                    <li>Stabilized segmentation outputs via VSB-guided bin splitting, NMS, and mask IoU filtering, reducing <strong style="color: var(--text-primary);">duplicate/overlapping detections by ~40%</strong> and improving per-frame inference reliability across 100+ retail cameras.</li>
+                    <li>Improved mask quality through boundary enforcement and polygon simplification while preserving shape accuracy.</li>
+                    <li>Designed automated image ingestion pipeline integrating Verint API and quality filters (blur, fisheye detection), increasing <strong style="color: var(--text-primary);">dataset diversity by ~35%</strong> and reducing retraining frequency by <strong style="color: var(--text-primary);">2x</strong> through better temporal sampling.</li>
+                    <li>Implemented pseudo-labeling workflow publishing pre-annotated datasets to TrueSpace via Azure Service Bus, cutting <strong style="color: var(--text-primary);">manual labeling time by ~50%</strong> and accelerating annotation cycles from weeks to days.</li>
+                    <li>Contributed to inventory change detection logic combining IoU-based spatial alignment, DOLG embedding similarity (cosine distance), and multimodal confirmation for robust product-level change validation.</li>
+                    <li>Developing similarity-based UPC assignment approach using rolling DOLG template embeddings from historical labeled crops to replace coordinate-dependent mapping.</li>
                 </ul>
             </div>
 
@@ -754,7 +659,6 @@
                     <li>Supported Snowflake schema creation and structured data warehousing for analytics use cases.</li>
                     <li>Performed SQL-based transformations and data cleaning to prepare curated datasets for dashboard and reporting teams.</li>
                     <li>Investigated and resolved data inconsistencies to improve reliability of downstream analytics systems.</li>
-                    
                 </ul>
             </div>
 
@@ -843,8 +747,11 @@
                 <div class="skill-items">
                     <span class="skill-tag">PyTorch</span>
                     <span class="skill-tag">YOLOv11</span>
-                    <span class="skill-tag">Transformers</span>
+                    <span class="skill-tag">HuggingFace Transformers</span>
                     <span class="skill-tag">CLIP/ViLT</span>
+                    <span class="skill-tag">DOLG Embeddings</span>
+                    <span class="skill-tag">OpenCV</span>
+                    <span class="skill-tag">Shapely</span>
                     <span class="skill-tag">Segmentation</span>
                 </div>
             </div>
@@ -853,6 +760,7 @@
                 <h3 class="skill-title">MLOps & DevOps</h3>
                 <div class="skill-items">
                     <span class="skill-tag">MLflow</span>
+                    <span class="skill-tag">ONNX Runtime</span>
                     <span class="skill-tag">DVC</span>
                     <span class="skill-tag">Docker</span>
                     <span class="skill-tag">Kubernetes</span>
@@ -953,22 +861,6 @@
                 </div>
             </div>
 
-            <!-- Coming Soon Card -->
-            <div class="project-card" style="opacity: 0.6;">
-                <div class="project-image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">🚀</div>
-                <div class="project-content">
-                    <h3 class="project-title">More Projects Coming Soon</h3>
-                    <p class="project-description">
-                        Currently building additional Computer Vision, ML, and Data Engineering projects. Check back soon for updates!
-                    </p>
-                    <div class="project-tags">
-                        <span class="project-tag">Computer Vision</span>
-                        <span class="project-tag">MLOps</span>
-                        <span class="project-tag">Data Engineering</span>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -980,14 +872,6 @@
                 I'm always open to discussing new opportunities, collaborations, or just chatting about ML, data engineering, and technology!
             </p>
             <div class="contact-links">
-                <a href="https://github.com/jay1197-ui" class="contact-link" target="_blank">
-                    <div class="contact-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                        </svg>
-                    </div>
-                    <span>GitHub</span>
-                </a>
                 <a href="https://linkedin.com/in/sravank1197" class="contact-link" target="_blank">
                     <div class="contact-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
@@ -1013,13 +897,12 @@
         © 2026 Jaya Sravan Kala. All rights reserved.
     </footer>
 
-    <!-- Theme Script (ADDED) -->
+    <!-- Theme Script -->
     <script>
         (function () {
             const root = document.documentElement;
             const btn = document.getElementById('themeToggle');
 
-            // default = dark
             const saved = localStorage.getItem('theme');
             if (saved === 'light' || saved === 'dark') {
                 root.setAttribute('data-theme', saved);
